@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace VozilaWF
 {
-     class AutoSus:Auto
+     public class AutoSus:Auto
     {
         public AutoSus(VrstaAuta vrsta, VrstaMenjaca menjac,SusMotor.Standard standard, SusMotor.Gorivo gorivo, Motor.Snaga snaga)
         {

@@ -50,7 +50,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(11, 10);
+            this.label1.Location = new System.Drawing.Point(12, 47);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(53, 13);
             this.label1.TabIndex = 100;
@@ -59,7 +59,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 179);
+            this.label2.Location = new System.Drawing.Point(12, 210);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(66, 13);
             this.label2.TabIndex = 101;
@@ -68,7 +68,9 @@
             // panel1
             // 
             this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.listBox5);
+            this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.listBox4);
             this.panel1.Controls.Add(this.listBox3);
@@ -78,17 +80,17 @@
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(12, 33);
+            this.panel1.Location = new System.Drawing.Point(12, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(210, 455);
+            this.panel1.Size = new System.Drawing.Size(159, 476);
             this.panel1.TabIndex = 2;
             // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.Lime;
-            this.button1.Location = new System.Drawing.Point(14, 427);
+            this.button1.Location = new System.Drawing.Point(14, 425);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(186, 22);
+            this.button1.Size = new System.Drawing.Size(120, 40);
             this.button1.TabIndex = 112;
             this.button1.Text = "Dodaj Auto";
             this.button1.UseVisualStyleBackColor = false;
@@ -98,7 +100,7 @@
             // 
             this.listBox5.BackColor = System.Drawing.Color.GreenYellow;
             this.listBox5.FormattingEnabled = true;
-            this.listBox5.Location = new System.Drawing.Point(14, 114);
+            this.listBox5.Location = new System.Drawing.Point(14, 151);
             this.listBox5.Name = "listBox5";
             this.listBox5.Size = new System.Drawing.Size(120, 56);
             this.listBox5.TabIndex = 111;
@@ -107,7 +109,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(12, 98);
+            this.label6.Location = new System.Drawing.Point(12, 135);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(65, 13);
             this.label6.TabIndex = 110;
@@ -117,7 +119,7 @@
             // 
             this.listBox4.BackColor = System.Drawing.Color.GreenYellow;
             this.listBox4.FormattingEnabled = true;
-            this.listBox4.Location = new System.Drawing.Point(14, 263);
+            this.listBox4.Location = new System.Drawing.Point(14, 275);
             this.listBox4.Name = "listBox4";
             this.listBox4.Size = new System.Drawing.Size(120, 69);
             this.listBox4.TabIndex = 109;
@@ -135,9 +137,9 @@
             // 
             this.listBox2.BackColor = System.Drawing.Color.GreenYellow;
             this.listBox2.FormattingEnabled = true;
-            this.listBox2.Location = new System.Drawing.Point(15, 205);
+            this.listBox2.Location = new System.Drawing.Point(14, 226);
             this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(128, 30);
+            this.listBox2.Size = new System.Drawing.Size(119, 30);
             this.listBox2.TabIndex = 107;
             // 
             // label4
@@ -153,15 +155,15 @@
             // 
             this.listBox1.BackColor = System.Drawing.Color.GreenYellow;
             this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(14, 26);
+            this.listBox1.Location = new System.Drawing.Point(14, 63);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(128, 69);
+            this.listBox1.Size = new System.Drawing.Size(120, 69);
             this.listBox1.TabIndex = 106;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(11, 247);
+            this.label5.Location = new System.Drawing.Point(12, 259);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(74, 13);
             this.label5.TabIndex = 105;
@@ -170,7 +172,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(13, 9);
+            this.label3.Location = new System.Drawing.Point(17, 21);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(112, 13);
             this.label3.TabIndex = 1;
@@ -179,7 +181,7 @@
             // button2
             // 
             this.button2.BackColor = System.Drawing.Color.Lime;
-            this.button2.Location = new System.Drawing.Point(147, 4);
+            this.button2.Location = new System.Drawing.Point(59, 37);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 8;
@@ -191,9 +193,9 @@
             // 
             this.dataGridView1.BackgroundColor = System.Drawing.Color.GreenYellow;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(247, 33);
+            this.dataGridView1.Location = new System.Drawing.Point(189, 33);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(638, 419);
+            this.dataGridView1.Size = new System.Drawing.Size(719, 375);
             this.dataGridView1.TabIndex = 9;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
@@ -203,8 +205,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(961, 489);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.panel1);
             this.MaximizeBox = false;
             this.Name = "Form1";
@@ -213,7 +213,6 @@
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 

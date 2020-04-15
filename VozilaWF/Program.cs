@@ -17,6 +17,7 @@ namespace VozilaWF
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
+            //Pokreče se aplikacija i kreira objekat zadate klase
         }
     }
 }

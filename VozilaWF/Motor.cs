@@ -2,13 +2,12 @@
 
 namespace VozilaWF
 {
-    public abstract class Motor
+    public abstract class Motor: IIncreaceHP
     {
         public Gorivo VrstaGoriva { get; protected set; }
         public Snaga SnagaAuta { get; protected set; }
         public int SnagaKS { get; protected set; }
-        
-        
+        private bool SnagaPovecana { get;set; }
 
         public enum Gorivo
         {
@@ -51,5 +50,17 @@ namespace VozilaWF
             return " Snage u "+SnagaAuta + ", Konjskih snaga : " + SnagaKS + ", koristi " + VrstaGoriva;
         }
 
+        public bool PovecajSnagu()
+        {
+            if (!SnagaPovecana&&SnagaKS>0)
+            {
+                SnagaKS = Convert.ToInt32((int)SnagaKS * 1.35962);//(int) je direktno koriscenje integer vrednosti enuma
+                SnagaPovecana = true;
+                return true;
+            }
+            return false;
+        }
+
+        
     }
 }

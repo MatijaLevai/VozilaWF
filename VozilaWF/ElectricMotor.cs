@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace VozilaWF
 {
-    class ElectricMotor:Motor
+    public  class ElectricMotor:Motor
     {
         public ElectricMotor(Snaga snaga)
         {
-
+            VrstaGoriva = Gorivo.struja;//podrazumevana vrednost 
             SnagaAuta = snaga;
             IzracunajSnaguMotora();
         }

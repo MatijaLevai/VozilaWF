@@ -6,15 +6,15 @@ using System.Threading.Tasks;
 
 namespace VozilaWF
 {
-    class AutoElectric:Auto
+    public class AutoElectric:Auto
     {
-      
-
+        
         public AutoElectric(VrstaAuta vrsta, VrstaMenjaca menjac, Motor.Snaga snaga)
         {
             Id = Auto.brojObjekata;
-            Vrsta = vrsta;
+            Vrsta = vrsta; 
             Menjac = menjac;
+            
             Motor = new ElectricMotor(snaga);
             Auto.brojObjekata++;
         }

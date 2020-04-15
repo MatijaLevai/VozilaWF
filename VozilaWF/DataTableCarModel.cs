@@ -13,6 +13,7 @@ namespace VozilaWF
         public string Menjac { get; private set; }
         public string EuroStandard { get; private set; }
         public string Snaga { get; private set; }
+        public string SnagaKS { get; set; }
         public string Gorivo { get; private set; }
         public DataTableCarModel()
         {
@@ -24,6 +25,7 @@ namespace VozilaWF
             Tip = a.Vrsta.ToString();
             Menjac = a.Menjac.ToString();
             Snaga = a.Motor.SnagaAuta.ToString();
+            SnagaKS = a.Motor.SnagaKS.ToString();
             Gorivo = a.Motor.VrstaGoriva.ToString();
             SusMotor s = a.Motor as SusMotor;
             try { EuroStandard = s.EUstandard.ToString(); }
