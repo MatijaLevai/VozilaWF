@@ -197,12 +197,12 @@ namespace VozilaWF
         }
 
         private void button2_Click(object sender, EventArgs e)
-        {
+        {//korisniku se kliko na dugme pomic ispisuje objasnjenje vezano za kreiranje kola
             MessageBox.Show("Kako biste dodali novi Automobil u listu \n\r izaberite po jednu opciju iz dole navedenih lista.\n\r Kao što su tip auta, menjača, EU standarda motora, snage i vrste goriva.");
         }
 
         private void listBox5_SelectedIndexChanged(object sender, EventArgs e)
-        {
+        {//ukoliko korisnik izaberestruju kao gorivo, lista eu standarda se blokira
             var listbox = sender as ListBox;
             if (listbox.SelectedItem.ToString() == Motor.Gorivo.struja.ToString())
             {
@@ -212,18 +212,7 @@ namespace VozilaWF
                 listBox3.Enabled = true;
         }
 
-        private void dataGridView1_SelectionChanged(object sender, EventArgs e)
-        {
-            if (dataGridView1.SelectedRows.Count == 1)
-            {
-                MessageBox.Show(listaKola[dataGridView1.SelectedRows[0].Index].ToString());
-            }
-            else if (dataGridView1.SelectedRows.Count > 1)
-            {
-                MessageBox.Show("Selektuj samo jedan red.");
-            }
-
-        }
+        
 
         private void dataGridView1_CellClick(object sender,DataGridViewCellEventArgs e)
         {
