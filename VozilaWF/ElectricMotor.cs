@@ -6,11 +6,18 @@ using System.Threading.Tasks;
 
 namespace VozilaWF
 {
-    abstract class DrumskoVozilo:Vozilo
+    class ElectricMotor:Motor
     {
+        public ElectricMotor(Snaga snaga)
+        {
+
+            SnagaAuta = snaga;
+            IzracunajSnaguMotora();
+        }
         public override string ToString()
         {
-            return this.GetType().ToString();
+            return base.ToString();
         }
+       
     }
 }

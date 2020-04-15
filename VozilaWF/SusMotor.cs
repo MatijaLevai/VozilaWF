@@ -8,38 +8,27 @@ namespace VozilaWF
 {
     public class SusMotor : Motor
     {
-        public Gorivo VrstaGoriva { get;private set; }
-        public int ProsecnaPotrosnja { get; private set; }
-        public int Zapremina { get; private set; }
-        public enum Gorivo
+        public Standard EUstandard { get; set; }
+       
+        public enum Standard
         {
-            dizel,
-             benzin,
-             CNG
+            Euro2,
+            Euro3,
+            Euro4,
+            Euro5
         }
-        public SusMotor(Gorivo gorivo,int prosecnaPotrosnja,int snagaKW,int snagaKS,int zapremina)
+        public SusMotor(Standard standard,Gorivo gorivo,Snaga snaga)
         {
+            EUstandard = standard;
             VrstaGoriva = gorivo;
-            ProsecnaPotrosnja = prosecnaPotrosnja;
-            SnagaKW = snagaKW;
-            SnagaKS = snagaKS;
-            Zapremina = zapremina;
+            SnagaAuta = snaga;
+            IzracunajSnaguMotora();
         }
         public override string ToString()
         {
-            return this.GetType().ToString() + " "+this.SnagaKS+ "Konjskih snaga i " + SnagaKW + "KW, koristi "+VrstaGoriva+" ima zapreminu motora "+Zapremina+" i prosecnu potrosnju od "+ProsecnaPotrosnja;
+            return base.ToString()+", "+ EUstandard+ " standarda";
         }
-        public string[] Ispis()
-        {
-            string[] ispis = new string[] {
-            VrstaGoriva.ToString(),
-            ProsecnaPotrosnja.ToString(),
-            SnagaKW.ToString(),
-            SnagaKS.ToString(),
-            Zapremina.ToString()
-                };
-            return ispis;
-        }
+       
         
     }
 }

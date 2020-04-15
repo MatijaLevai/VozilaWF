@@ -6,18 +6,18 @@ using System.Threading.Tasks;
 
 namespace VozilaWF
 {
-     class AutoSus:Auto
+    class AutoElectric:Auto
     {
-        public AutoSus(VrstaAuta vrsta, VrstaMenjaca menjac,SusMotor.Standard standard, SusMotor.Gorivo gorivo, Motor.Snaga snaga)
+      
+
+        public AutoElectric(VrstaAuta vrsta, VrstaMenjaca menjac, Motor.Snaga snaga)
         {
             Id = Auto.brojObjekata;
             Vrsta = vrsta;
             Menjac = menjac;
-            Motor = new SusMotor(standard, gorivo,snaga);
+            Motor = new ElectricMotor(snaga);
             Auto.brojObjekata++;
         }
-       
 
-        
     }
 }
