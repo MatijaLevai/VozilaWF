@@ -113,45 +113,66 @@ namespace VozilaWF
              new AutoSus (Auto.VrstaAuta.minivan,   Auto.VrstaMenjaca.automatski,SusMotor.Standard.Euro3,Motor.Gorivo.dizel,Motor.Snaga.kW110)
             };
         }
-
+        //dole su definisani Eventi tj. dogadjavi usled kojih se poziva
+        //Standardan šablon događaja zamišljen je tako da vam omogući
+        //da upotrebom osnovne klase EventArgs iskoristite kontravarijantu parametara delegata.
+        //Na primer, jednu metodu mogu pozvati dva različita delegata, 
+        //od kojih joj jedan prosleđuje argumente tipa MouseEventArgs a drugi tipa KeyEventArgs. 
+       //Pri korišćenju delegata obično se javljaju dve važne uloge: emiter ili
+       //izvor(engl.broadcaster) i pretplatnik(engl.subscriber). Emiter je tip
+       //koji sadrži polje tipa delegat.Emiter odlučuje kada će emitovati, tako
+       //što poziva delegata. Pretplatnici su primaoci čije metode obrađuju događaje.
+       //Pretplatnik odlučuje kada da započne i prekine osluškivanje,
+       //tako što primenjuje operatore += i -= na delegata datog emitera. Jedan
+       //pretplatnik ne zna za druge pretplatnike, niti se meša u njihov rad.
+       //Događaji su komponenta programskog jezika pomoću koje se formalizuje ovakav način rada.
+       //event je konstrukt koji eksponira samo onaj
+       //podskup osobina delegata koji je potreban modelu emiter/pretplatnik.
+       //Glavna namena događaja je da spreče pretplatnike da ometaju jedni druge.
+       //
+       //U nasem primeru definicija osluskivanja je generisana u parcijalnoj klasi Form1.
+       //Designer dok su ovde definisane metode koje se pozivaju u svojstvu event handlera tj. obradjivaca dogadjaja
         private void button1_Click(object sender, EventArgs e)
-        {
-            string poruka="";
+        {//button1.Click se pokrece kada korisnik klikne na dugme dodaj Auto
+            string poruka=""; //ukoliko bude gresaka poruka ce dobiti vrednost
             //koriscenje linq za dobijanje odgovora na pitanje da li je neki od list boxova ostao da nije selektovana jedna od ponudjenih opcija
            
+            //definisemo listu lisboxeva u koju cemo smestiti svaki onaj lisbox koji ne bude imao izabranuvrednost
             List<ListBox> lbnumnull =new List<ListBox>( listaListBoxes.Where(lb => lb.SelectedItem == null));
-           
+           //uspevamo pomocu lambda izraza i proveravamo da li je vrednost selektovanog itema jednaka null
             int  brojGresaka = lbnumnull.Count();
-           
+           //zatim brojimo koliko ima takvih lisboxeva
             if (brojGresaka > 0)
             {
-                
+                //ovaj blok se izvrsava ukoliko je broj gresaka makar 1 ili veci
 
                 if (brojGresaka == 1)
-                {
+                {//ovaj blok koda se izvrsava ukoliko je broj gresaka tacno jedan
 
-
+                    //posto je Svojstvo euro standarda vezano samo za MotorSus klasu
+                    //proveravamo da li je korisnik izabrao motor na struju i ako jeste 
+                    //i ako je jedina greska ta da mu fali euro standard znaci da se mora kreirati  objekat klase AutoElectrik
                     if (lbnumnull.First().AccessibleName == "EU standard" && listBox5.SelectedItem.ToString() == Motor.Gorivo.struja.ToString())
                     {
                         AutoElectric A = new AutoElectric((Auto.VrstaAuta)listBox1.SelectedItem, (Auto.VrstaMenjaca)listBox2.SelectedItem, (Motor.Snaga)listBox4.SelectedItem);
-                        listaKola.Add(A);
+                        listaKola.Add(A);//kreirani objekat dodsajemo u listu kola
 
-                        UpdateDataGridView();
+                        UpdateDataGridView();//pozivamo metodu za azuriranje tabele sa podacima
                         
                     }
                     else
                     {
                         poruka += "Preskočili ste opciju :" + lbnumnull.First().AccessibleName;
-                    }
+                    }//ukoliko je korisnik napravio gresku koja ne ispunjava prethodni uslov znaci da je prava greska i da mu je treba ispisati u vidu poruke
                     
                     
                 }
                 else
-                {
+                {//ovaj blok se izvrsava ukoliko je broj gresaka veci od 1
                     poruka += "Preskočili ste opcije :";
-                    for (int i = 0; i < brojGresaka; i++)
+                    for (int i = 0; i < brojGresaka; i++)//koristi se for petlja koja proverava svaki elemenat liste lbnumnull i stavlja ime listboxa kao tekst svake greske
                     {
-                        if (i == brojGresaka - 1)
+                        if (i == brojGresaka - 1)//jednostavna provera da je poslednji elemenat, ukoliko jeste ne stavljamo zarez na kraju
                             poruka += lbnumnull[i].AccessibleName;
                         else
                             poruka += lbnumnull[i].AccessibleName + ", ";
@@ -161,14 +182,15 @@ namespace VozilaWF
 
                 }
                 
-                if(!String.IsNullOrWhiteSpace(poruka))
-                    MessageBox.Show(poruka);
+                if(!String.IsNullOrWhiteSpace(poruka))//konacno nakon svih provera gresaka proverava se da li je poruka dobila neku vrednost
+                    MessageBox.Show(poruka);//ukoliko jeste ispuje se korisniku u vidu message boxa
             }
             else
-            {
+            {//ovaj blok se izvrsava ukoliko nema gresaka i ukoliko korisnik nije izabrao auto na struju
                 AutoSus A = new AutoSus( (Auto.VrstaAuta)listBox1.SelectedItem, (Auto.VrstaMenjaca)listBox2.SelectedItem, (SusMotor.Standard)listBox3.SelectedItem, (
                     Motor.Gorivo)listBox5.SelectedItem, (Motor.Snaga)listBox4.SelectedItem);
-                listaKola.Add(A);
+                //gde vidite npr. (Motor.Gorivo)listBox5.SelectedItem to je eksplicitna konverzija objekta u tip Enuma
+                listaKola.Add(A);//kreirani auto se dodaje u listu i poziva se azuziranje datagridview tabele
                 UpdateDataGridView();
             }
             
